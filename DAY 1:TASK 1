@@ -1,0 +1,17 @@
+// Task 1: Variable declarations and console outputs
+
+// Using var
+var name = "Varsitha";
+console.log("Using var:", name);
+
+// Using let
+let age = 18;
+console.log("Using let:", age);
+
+// Using const
+const college = "KG College of Arts and Science";
+console.log("Using const:", college);
+
+// Modifying variable
+age = 19;
+console.log("Updated age:", age);
