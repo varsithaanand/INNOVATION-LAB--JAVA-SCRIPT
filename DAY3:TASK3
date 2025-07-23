@@ -1,0 +1,31 @@
+// Callback function
+function fetchData(callback) {
+    console.log("Fetching data...");
+    callback();
+}
+
+function onComplete() {
+    console.log("Fetch complete!");
+}
+
+fetchData(onComplete);
+
+// Scopes
+var globalVar = "I'm global";
+
+function scopeExample() {
+    var functionVar = "I'm function scoped";
+    let blockLet = "I'm block scoped";
+    const blockConst = "I'm also block scoped";
+
+    if (true) {
+        let innerLet = "Inner let";
+        var innerVar = "Inner var";
+        console.log(innerLet); // Accessible
+    }
+
+    console.log(innerVar); // Accessible (var is function scoped)
+    // console.log(innerLet); // Error: innerLet is not defined
+}
+
+scopeExample();
