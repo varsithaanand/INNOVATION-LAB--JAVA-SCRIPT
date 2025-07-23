@@ -1,0 +1,29 @@
+// Traditional function declaration
+function square(n) {
+    return n * n;
+}
+console.log(square(4)); // 16
+
+// Function expression
+const multiply = function(a, b) {
+    return a * b;
+};
+console.log(multiply(3, 4)); // 12
+
+// Arrow function (ES6)
+const divide = (a, b) => a / b;
+console.log(divide(10, 2)); // 5
+
+// Difference in 'this' behavior example
+const person = {
+    name: "Varsitha",
+    greet: function() {
+        console.log("Hi, " + this.name);
+    },
+    arrowGreet: () => {
+        console.log("Hi, " + this.name); // this is undefined here
+    }
+};
+
+person.greet();       // Hi, Varsitha
+person.arrowGreet();  // Hi, undefined                  
