@@ -1,0 +1,15 @@
+// Task 1: Fixed parameters
+function greet(name) {
+    console.log(Hello, ${name}!);
+}
+greet("Varsitha");
+
+// Task 1: Arbitrary number of arguments using rest operator
+function addNumbers(...nums) {
+    let sum = 0;
+    for (let num of nums) {
+        sum += num;
+    }
+    console.log(Sum: ${sum});
+}
+addNumbers(1, 2, 3, 4, 5);
