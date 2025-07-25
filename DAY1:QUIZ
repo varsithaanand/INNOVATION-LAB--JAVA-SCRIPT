@@ -13,3 +13,10 @@
   4. What does the ternary operator do?  
      *(Answer: It’s a shorthand for if-else, syntax: condition ? value1 : value2)*
   5. Predict the output of a small code snippet with increment/decrement operators.
+     #include <stdio.h>
+     int main() {
+    int x = 5;
+    int y = ++x;
+    printf("%d %d", x, y);//output: 6 6
+    return 0;
+    }
