@@ -1,0 +1,42 @@
+//  Create an array of product objects
+let products = [
+    { id: 1, name: "Laptop", price: 50000, quantity: 2 },
+    { id: 2, name: "Mouse", price: 800, quantity: 0 },
+    { id: 3, name: "Keyboard", price: 1500, quantity: 3 },
+    { id: 4, name: "Monitor", price: 12000, quantity: 1 }
+];
+
+// Use filter() to get available products
+let availableProducts = products.filter(p => p.quantity > 0);
+console.log("Available Products:", availableProducts);
+
+// Use reduce() to calculate total cart value
+let totalCartValue = availableProducts.reduce((sum, p) => sum + (p.price * p.quantity), 0);
+console.log("Total Cart Value:", totalCartValue);
+
+// Use slice() & splice() to manipulate product list
+let firstTwo = products.slice(0, 2);
+console.log("First two products (slice):", firstTwo);
+let removed = products.splice(1, 1);
+console.log("Removed product (splice):", removed);
+console.log("Products after splice:", products);
+
+// Use spread to clone & add a new product
+let updatedProducts = [...products, { id: 5, name: "Headphones", price: 2000, quantity: 2 }];
+console.log("Updated Products with Spread:", updatedProducts);
+
+// Create a product object with a method
+let productWithMethod = {
+    id: 6,
+    name: "Webcam",
+    price: 3000,
+    quantity: 1,
+    printDetails() {
+        console.log(Product: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity});
+    }
+};
+productWithMethod.printDetails();
+
+// Use destructuring to extract product details
+let { name, price, quantity } = productWithMethod;
+console.log(Destructured -> Name: ${name}, Price: ${price}, Quantity: ${quantity});
