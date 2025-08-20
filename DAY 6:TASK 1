@@ -1,0 +1,24 @@
+// Task 1: Destructuring, Notation & Iteration
+
+const student = {
+    name: "Varsha",
+    age: 18,
+    scores: { math: 90, science: 85 }
+};
+
+// Destructuring with nested properties
+const { name, scores: { math } } = student;
+console.log("Nested Destructuring:", name, "scored", math);
+
+// Dot vs Bracket notation
+console.log("Dot notation:", student.name);
+console.log("Bracket notation:", student["age"]);
+
+// Iterating over object properties
+console.log("Using for...in:");
+for (let key in student) {
+    console.log(`${key}: ${student[key]}`);
+}
+
+console.log("Using Object.entries:");
+Object.entries(student).forEach(([k, v]) => console.log(k, v));
