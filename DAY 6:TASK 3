@@ -1,0 +1,18 @@
+// Task 3: Function Context & Advanced Calls
+
+function showDetails(prefix) {
+    console.log(`${prefix} Name: ${this.name}, Age: ${this.age}`);
+}
+
+const person1 = { name: "Alice", age: 25 };
+const person2 = { name: "Bob", age: 30 };
+
+console.log("Using call:");
+showDetails.call(person1, "Call ->");
+
+console.log("Using apply:");
+showDetails.apply(person2, ["Apply ->"]);
+
+console.log("Using bind:");
+const boundFn = showDetails.bind(person1, "Bind ->");
+boundFn();
