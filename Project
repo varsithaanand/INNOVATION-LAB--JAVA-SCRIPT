@@ -1,0 +1,61 @@
+// Employee Data
+let employees = [
+  { id: 1, name: "Alice", position: "Dev", salary: 5000, dept: "IT", available: true },
+  { id: 2, name: "Bob", position: "Manager", salary: 7000, dept: "HR", available: false }
+];
+
+// Add Employee
+function addEmployee(emp) { employees.push(emp); }
+
+// Remove Employee by ID
+function removeEmployee(id) { employees = employees.filter(e => e.id !== id); }
+
+// Update Employee info
+function updateEmployee(id, newData) {
+  let emp = employees.find(e => e.id === id);
+  if (emp) Object.assign(emp, newData);
+}
+
+// Display Employee List
+function displayEmployees() { employees.forEach(e => console.log(e)); }
+
+// Search Employee by name
+function searchEmployee(name) { 
+  return employees.filter(e => e.name.toLowerCase().includes(name.toLowerCase())); 
+}
+
+// Calculate total salary of active employees
+function totalActiveSalary() { 
+  return employees.filter(e => e.available).reduce((sum,e) => sum+e.salary,0); 
+}
+
+// Department-wise salary report
+function deptReport() {
+  return employees.reduce((acc,e) => {
+    acc[e.dept] = (acc[e.dept]||0) + e.salary;
+    return acc;
+  },{});
+}
+
+// Sort employees by salary
+function sortBySalary(order="asc") {
+  return [...employees].sort((a,b)=> order==="asc"?a.salary-b.salary:b.salary-a.salary);
+}
+
+// Toggle availability
+function toggleAvailability(id) {
+  let emp = employees.find(e=>e.id===id);
+  if(emp) emp.available = !emp.available;
+}
+
+// ------------------ DEMO ------------------
+addEmployee({ id: 3, name: "Charlie", position: "Tester", salary: 4000, dept: "QA", available: true });
+updateEmployee(1, { salary: 5500 });
+removeEmployee(2);
+displayEmployees();
+console.log("Search:", searchEmployee("Charlie"));
+console.log("Total Active Salary:", totalActiveSalary());
+console.log("Dept Report:", deptReport());
+console.log("Sorted:", sortBySalary("desc"));
+toggleAvailability(3);
+displayEmployees();
