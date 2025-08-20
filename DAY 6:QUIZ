@@ -1,0 +1,15 @@
+// Quiz: How do you destructure an object with nested properties?
+
+const employee = {
+    id: 101,
+    details: {
+        name: "Ravi",
+        dept: "IT",
+        location: { city: "Ooty", state: "TN" }
+    }
+};
+
+// Destructuring with nested properties
+const { details: { name: empName, location: { city, state } } } = employee;
+
+console.log("Quiz Answer ->", empName, "works in", city, state);
