@@ -1,0 +1,63 @@
+// Project: Contact Management Module
+
+// Step 1: Array of contacts
+const contacts = [
+    {
+        name: "Alice",
+        phone: "9876543210",
+        email: "alice@example.com",
+        address: { city: "Ooty", state: "TN" },
+        display() {
+            console.log(`Contact -> ${this.name}, ${this.phone}, ${this.email}`);
+        }
+    },
+    {
+        name: "Bob",
+        phone: "9123456780",
+        email: "bob@example.com",
+        address: { city: "Coimbatore", state: "TN" },
+        display() {
+            console.log(`Contact -> ${this.name}, ${this.phone}, ${this.email}`);
+        }
+    }
+];
+
+// Destructuring inside a function
+function showContact({ name, phone, email, address: { city } }) {
+    console.log(`Destructured -> ${name} (${phone}), Email: ${email}, City: ${city}`);
+}
+showContact(contacts[0]);
+
+// Iterating through contacts
+console.log("Iterating contacts:");
+for (const c of contacts) {
+    c.display();
+}
+
+// Rest parameters to add multiple contacts
+function addContacts(...newContacts) {
+    contacts.push(...newContacts);
+}
+addContacts({ name: "Charlie", phone: "9000000000", email: "charlie@example.com", address: { city: "Chennai", state: "TN" }, display() { console.log(`Contact -> ${this.name}`); } });
+
+console.log("After adding contacts:");
+contacts.forEach(c => c.display());
+
+// Spread operator to merge arrays
+const moreContacts = [
+    { name: "David", phone: "9555555555", email: "david@example.com", address: { city: "Madurai", state: "TN" }, display() { console.log(`Contact -> ${this.name}`); } }
+];
+const mergedContacts = [...contacts, ...moreContacts];
+
+console.log("Merged Contacts:");
+mergedContacts.forEach(c => c.display());
+
+// call(), apply(), bind()
+const externalDisplay = function (prefix) {
+    console.log(`${prefix} ${this.name}, Phone: ${this.phone}`);
+};
+
+externalDisplay.call(contacts[0], "Call ->");
+externalDisplay.apply(contacts[1], ["Apply ->"]);
+const boundFn = externalDisplay.bind(contacts[2], "Bind ->");
+boundFn();
