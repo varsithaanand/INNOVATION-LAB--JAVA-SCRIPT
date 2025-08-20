@@ -1,0 +1,23 @@
+// Task 2: Complex Data & Parameter Handling
+
+// Array of objects
+const products = [
+    { id: 1, name: "Laptop", price: 50000 },
+    { id: 2, name: "Phone", price: 20000 }
+];
+
+// Function with rest parameters
+function addProducts(...newProducts) {
+    products.push(...newProducts);
+}
+addProducts({ id: 3, name: "Tablet", price: 15000 });
+
+console.log("Products after adding:");
+products.forEach(p => console.log(p.name, "-", p.price));
+
+// Spread operator (merge arrays)
+const moreProducts = [
+    { id: 4, name: "Headphones", price: 2000 }
+];
+const allProducts = [...products, ...moreProducts];
+console.log("All Products:", allProducts.map(p => p.name));
