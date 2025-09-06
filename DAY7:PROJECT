@@ -1,0 +1,31 @@
+// ===== Project: Library Management System =====
+
+class Book {
+  constructor(title, author, publishedDate) {
+    this.title = title;
+    this.author = author;
+    this.publishedDate = new Date(publishedDate);
+  }
+
+  getSummary() {
+    return "${this.title}" by ${this.author} (${this.publishedDate.getFullYear()});
+  }
+}
+
+class EBook extends Book {
+  constructor(title, author, publishedDate, fileSizeMB) {
+    super(title, author, publishedDate);
+    this.fileSizeMB = fileSizeMB;
+  }
+
+  getSummary() {
+    return ${super.getSummary()} - File size: ${this.fileSizeMB} MB;
+  }
+}
+
+// Instances
+const b1 = new Book("Clean Code", "Robert C. Martin", "2008-08-01");
+const e1 = new EBook("Eloquent JavaScript", "Marijn Haverbeke", "2018-12-04", 4.7);
+
+console.log(b1.getSummary());
+console.log(e1.getSummary());
