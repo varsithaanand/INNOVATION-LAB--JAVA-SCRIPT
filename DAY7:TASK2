@@ -1,0 +1,26 @@
+// ===== Task 2: Classes and this Keyword =====
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  greet(prefix = "Hello") {
+    return ${prefix}, I'm ${this.name} and I'm ${this.age} years old.;
+  }
+}
+
+const alice = new Person("Alice", 22);
+console.log(alice.greet());
+
+// Demonstrating this
+const loose = alice.greet;
+try {
+  console.log(loose()); // error: this undefined
+} catch (e) {
+  console.log("Loose call failed:", e.message);
+}
+
+// Fix with bind
+const bound = alice.greet.bind(alice);
+console.log(bound("Hi"));
