@@ -1,0 +1,25 @@
+// ===== Task 3: Inheritance and super() =====
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  greet() {
+    return Hello, I'm ${this.name}.;
+  }
+}
+
+class Student extends Person {
+  constructor(name, age, rollNo) {
+    super(name, age); // must call parent constructor
+    this.rollNo = rollNo;
+  }
+
+  greet() {
+    return ${super.greet()} My roll no is ${this.rollNo}.;
+  }
+}
+
+const bob = new Student("Bob", 20, "CS101");
+console.log(bob.greet());
