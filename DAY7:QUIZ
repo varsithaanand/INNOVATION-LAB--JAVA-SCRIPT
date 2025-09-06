@@ -1,0 +1,16 @@
+// ===== Quiz =====
+
+// Q1: How to create a new Date object for the current date?
+const now = new Date();
+
+// Q2: What does the this keyword refer to inside a class method?
+// -> The instance of the class that called the method
+
+// Q3: What is the purpose of super() in a subclass?
+// -> To call the parent class constructor (and access parent methods)
+
+// Q4: How do you extend a class in JavaScript?
+// -> class Child extends Parent { ... }
+
+// Q5: What happens if you don’t call super() in a subclass constructor?
+// -> Error: Must call super() before using this
