@@ -1,0 +1,26 @@
+// ===== Task 1: Working with Date Objects =====
+
+// 1) Create Date objects
+const now = new Date();
+const diwali2025 = new Date("2025-10-20T00:00:00");
+console.log("Now:", now);
+console.log("Diwali 2025:", diwali2025.toString());
+
+// 2) Extract & manipulate date components
+console.log("Year:", now.getFullYear());
+console.log("Month:", now.getMonth() + 1); // 0-based
+console.log("Day:", now.getDate());
+console.log("Hours:", now.getHours());
+console.log("Minutes:", now.getMinutes());
+
+// Add 10 days & change time
+const plus10 = new Date(now);
+plus10.setDate(plus10.getDate() + 10);
+plus10.setHours(8, 30);
+console.log("Now +10 days, 08:30:", plus10.toString());
+
+// 3) Format & display
+const pad = (n) => String(n).padStart(2, "0");
+const custom = ${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())};
+console.log("Custom format:", custom);
+console.log("Locale:", now.toLocaleString("en-IN"));
